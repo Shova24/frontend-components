@@ -4,9 +4,7 @@
       <p>View</p>
     </div>
 
-    <div>
-        
-    </div>
+
 
     <div class="story-img">
       <div class="img">
