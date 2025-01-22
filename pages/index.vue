@@ -6,6 +6,9 @@
     <NuxtLink to="/parallax-scaling-with-lenis"
       >Parallax-scaling-with-lenis</NuxtLink
     >
+    <NuxtLink to="/parallax-card"
+      >Parallax Card</NuxtLink
+    >
   </div>
 </template>
 
