@@ -9,6 +9,12 @@
     <NuxtLink to="/parallax-card"
       >Parallax Card</NuxtLink
     >
+    <NuxtLink to="/half-circle"
+      >Half Circle</NuxtLink
+    >
+    <NuxtLink to="/coordination-system"
+      >Coordination</NuxtLink
+    >
   </div>
 </template>
 

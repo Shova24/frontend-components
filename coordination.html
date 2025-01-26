@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Browser Coordinate System Visualization</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        #coordinate-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-color: white;
+            overflow: hidden;
+        }
+        #x-axis, #y-axis {
+            position: absolute;
+            background-color: red;
+        }
+        #x-axis {
+            height: 2px;
+            width: 100%;
+            top: 50%;
+        }
+        #y-axis {
+            width: 2px;
+            height: 100%;
+            left: 50%;
+        }
+        .card {
+            position: absolute;
+            width: 100px;
+            height: 150px;
+            background-color: #3498db;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            border-radius: 10px;
+            transform-origin: center center;
+        }
+        .angle-line {
+            position: absolute;
+            background-color: green;
+            height: 2px;
+            transform-origin: left center;
+        }
+        .info-panel {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="coordinate-container">
+        <div id="x-axis"></div>
+        <div id="y-axis"></div>
+        <div class="info-panel" id="angle-info">
+            Angle Details:
+            <div id="angle-text"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('coordinate-container');
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+            const radius = Math.min(window.innerWidth, window.innerHeight) * 0.4;
+
+            function createAngleLine(angle) {
+                const line = document.createElement('div');
+                line.classList.add('angle-line');
+                line.style.width = `${radius}px`;
+                line.style.left = `${centerX}px`;
+                line.style.top = `${centerY}px`;
+                line.style.transform = `rotate(${angle}rad)`;
+                container.appendChild(line);
+                return line;
+            }
+
+            function createCard(angle, index) {
+                const card = document.createElement('div');
+                card.classList.add('card');
+                card.innerText = `Card ${index + 1}`;
+                
+                const x = centerX + Math.cos(angle) * radius;
+                const y = centerY + Math.sin(angle) * radius;
+
+                card.style.left = `${x - 50}px`;
+                card.style.top = `${y - 75}px`;
+                card.style.transform = `rotate(${angle}rad)`;
+
+                container.appendChild(card);
+                return card;
+            }
+
+            const angles = [0, Math.PI/4, Math.PI/2, 3*Math.PI/4, Math.PI, 5*Math.PI/4, 3*Math.PI/2, 7*Math.PI/4];
+
+            angles.forEach((angle, index) => {
+                createAngleLine(angle);
+                createCard(angle, index);
+            });
+
+            // Angle display update
+            function updateAngleDisplay(event) {
+                const rect = container.getBoundingClientRect();
+                const x = event.clientX - rect.left - centerX;
+                const y = event.clientY - rect.top - centerY;
+                const calculatedAngle = Math.atan2(y, x);
+                
+                document.getElementById('angle-text').innerHTML = `
+                    X: ${x.toFixed(2)}<br>
+                    Y: ${y.toFixed(2)}<br>
+                    Angle: ${calculatedAngle.toFixed(2)} rad<br>
+                    Degrees: ${(calculatedAngle * 180 / Math.PI).toFixed(2)}°
+                `;
+            }
+
+            container.addEventListener('mousemove', updateAngleDisplay);
+        });
+    </script>
+</body>
+</html>
