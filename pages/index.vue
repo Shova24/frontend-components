@@ -15,6 +15,9 @@
     <NuxtLink to="/coordination-system"
       >Coordination</NuxtLink
     >
+    <NuxtLink to="/grid"
+      >grid</NuxtLink
+    >
   </div>
 </template>
 
