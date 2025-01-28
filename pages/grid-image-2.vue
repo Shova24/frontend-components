@@ -14,10 +14,9 @@
           :class="`base-${index}`"
           :style="{
             left: `${(index % 2) * 50}%`,
-            top: `${Math.floor(index / 2) * 50}%`,
+            top: `${0}%`,
             width: '50%',
-            height: '50%',
-            // visibility: shouldHideBase(index) ? 'hidden' : 'visible'
+            height: '100%',
           }"
         >
           <img 
@@ -25,7 +24,7 @@
             alt="Current image" 
             :style="{
               left: `${-(index % 2) * 100}%`,
-              top: `${-Math.floor(index / 2) * 100}%`,
+              top: `${0}%`,
               width: '200%',
               height: '200%'
             }"
@@ -42,9 +41,9 @@
           :class="`block-${index}`"
           :style="{
             left: `${(index % 2) * 50}%`,
-            top: `${Math.floor(index / 2) * 50}%`,
+            top: `${0}%`,
             width: '50%',
-            height: '50%',
+            height: '100%',
             visibility: shouldShowBlock(index) ? 'visible' : 'hidden'
           }"
         >
@@ -53,7 +52,7 @@
             alt="Next image" 
             :style="{
               left: `${-(index % 2) * 100}%`,
-              top: `${-Math.floor(index / 2) * 100}%`,
+              top: `${0}%`,
               width: '200%',
               height: '200%'
             }"

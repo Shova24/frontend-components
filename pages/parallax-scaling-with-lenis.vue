@@ -109,6 +109,12 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss" scoped>
+
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .wrapper {
   width: 100%;
   height: 100vh;
