@@ -9,8 +9,6 @@ const images = [
   "https://img.freepik.com/free-photo/dreamy-arrangement-with-decorative-dried-flowers_23-2151363267.jpg?ga=GA1.1.1707687320.1721033496&semt=ais_hybrid",
   "https://img.freepik.com/premium-photo/vector-art-celestial-kitty-dreamy-feline-portrait-amidst_1041239-27980.jpg?ga=GA1.1.1707687320.1721033496&semt=ais_hybrid",
   "https://img.freepik.com/free-photo/dreamy-arrangement-with-decorative-dried-flowers_23-2151363285.jpg?ga=GA1.1.1707687320.1721033496&semt=ais_hybrid",
-  
-
 ];
 
 onMounted(() => {

@@ -18,6 +18,9 @@
     <NuxtLink to="/grid"
       >grid</NuxtLink
     >
+    <NuxtLink to="/threejs-page-transition-1"
+      >threejs-page-transition-1</NuxtLink
+    >
   </div>
 </template>
 
